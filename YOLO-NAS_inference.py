@@ -12,7 +12,7 @@ trainer.test(model=best_model,
 
 model = model.to('cuda' if torch.cuda.is_available() else 'cpu')
 
-img = cv2.imread('path/to/test.jpg')
+img = cv2.imread('/home/panyue/AL/data/test/images/00002.jpg')
 #img = cv2.cvtColor(img, cv2.Color_BGR2RGB)
 
 outputs = best_model.predict(img)
