@@ -17,7 +17,7 @@ from super_gradients.training import models
 import torch
 
 dataset_params = {
-    'data_dir':'/home/panyue/AL/data',
+    'data_dir':'/home/yue/AL/data',
     'train_images_dir':'train/images',
     'train_labels_dir':'train/labels',
     'val_images_dir':'val/images',
