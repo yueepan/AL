@@ -3,9 +3,9 @@ import torch
 import os
 from ultralytics import YOLO
 
-!cd /home/panyue/AL/data
+#!cd /home/panyue/AL/data
 ROOT_DIR = "/home/yue/AL/data"
-!ls -lt $ROOT_DIR
+#!ls -lt $ROOT_DIR
 
 model = YOLO('yolov8n.yaml')  # build a new model from YAML
 #TOWARDSDS TUTORIAL CODES
