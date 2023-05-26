@@ -1,4 +1,4 @@
-!pip install ultralytics
+pip install ultralytics
 import torch
 import os
 from ultralytics import YOLO
