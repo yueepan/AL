@@ -267,3 +267,28 @@ for i, num_data in enumerate(num_data_per_seed):
 
     start_index = end_index
     print(f"Created seed '{os.path.basename(seed_folder)}' with {percentages[i]}% of labels")
+
+
+#model train on each seed
+model = YOLO('/home/yue/AL/data/best.pt')   
+results = model.train(data = os.path.join(ROOT_DIR, "seed2.yaml"), epochs =100, patience = 20, imgsz= 2560, batch= 4)
+results = model.train(data = os.path.join(ROOT_DIR, "seed3.yaml"), epochs =100, patience = 20, imgsz= 2560, batch= 4)
+results = model.train(data = os.path.join(ROOT_DIR, "seed4.yaml"), epochs =100, patience = 20, imgsz= 2560, batch= 4)
+results = model.train(data = os.path.join(ROOT_DIR, "seed5.yaml"), epochs =100, patience = 20, imgsz= 2560, batch= 4)
+results = model.train(data = os.path.join(ROOT_DIR, "seed6.yaml"), epochs =100, patience = 20, imgsz= 2560, batch= 4)
+results = model.train(data = os.path.join(ROOT_DIR, "seed7.yaml"), epochs =100, patience = 20, imgsz= 2560, batch= 4)
+
+# Process results list
+for result in results:
+    boxes = result.boxes  # Boxes object for bbox outputs
+    masks = result.masks  # Masks object for segmentation masks outputs
+    keypoints = result.keypoints  # Keypoints object for pose outputs
+    probs = result.probs  # Probs object for classification outputs
+
+
+# Perform inference on the test dataset
+start_time = time.time()
+model.predict(os.path.join(ROOT_DIR, "test", "images"), save=True, imgsz=2560, conf=0.5)
+end_time = time.time()
+duration = end_time - start_time
+print("Inference Duration:", duration, "seconds")
