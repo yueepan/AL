@@ -176,8 +176,7 @@ sorted_indices_entropy= np.argsort(entropy_scores)[::-1]
 # Create the seed folder for seed 2 (2% of the unlabeled data)
 num_labels_to_select = int(percentages / 100 * len(unlabeled_images))
 print(num_labels_to_select)
-# num_labels_to_select = 2 # overwrite num_labels_to_select because we predicted only 10 images
-# Select the least confident data points
+
 selected_indices = sorted_indices_entropy[:num_labels_to_select]
 
 new_seed_name = "seed2"
